@@ -1,0 +1,13 @@
+dataset/
+*.jpg
+*.jpeg
+*.png
+*.tar.gz
+*.zip
+.claude/
+.vscode/
+.claude/settings.local.json
+.vscode/settings.json
+*.tlog
+*.tlog.raw
+

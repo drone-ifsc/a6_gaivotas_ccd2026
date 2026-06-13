@@ -1,0 +1,13 @@
+material ParedeLogo/Mat
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture logo_arena.jpg
+      }
+    }
+  }
+}

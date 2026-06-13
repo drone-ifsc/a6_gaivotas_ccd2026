@@ -1,0 +1,13 @@
+material base_azul_m1/Mat
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture base_azul_m1.jpg
+      }
+    }
+  }
+}

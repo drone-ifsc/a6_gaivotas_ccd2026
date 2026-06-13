@@ -1,0 +1,41 @@
+<launch>
+  <env name="GAZEBO_MODEL_PATH" value="$(find bouncing_mission)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+
+  <arg name="world" default="arena"/>  <arg name="world_file" default="$(find bouncing_mission)/worlds/arenaeletroquad2026.world"/>
+  
+  <arg name="gui" default="true"/>
+  <arg name="physics" default="ode"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="extra_gazebo_args" value="--verbose"/>
+    <arg name="physics" value="$(arg physics)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+  </include>
+
+        <arg name="ros_ip"     default="$(optenv ROS_IP 127.0.0.1)"/>
+<!--        <arg name="fcu_url" default="/dev/ttyAMA0:230400" /> -->
+        <arg name="fcu_url" default="udp://127.0.0.1:14551@" />
+        <arg name="gcs_url" default="udp://$(arg ros_ip):14445@" />
+        <arg name="tgt_system" default="1" />
+        <arg name="tgt_component" default="1" />
+        <arg name="log_output" default="screen" />
+        <arg name="fcu_protocol" default="v2.0" />
+        <arg name="respawn_mavros" default="true" />
+
+        <include file="$(find mavros)/launch/node.launch">
+                <arg name="pluginlists_yaml" value="$(find mavros)/launch/apm_pluginlists.yaml" />
+                <arg name="config_yaml" value="$(find bouncing_mission)/launch/apm_config.yaml" />
+
+                <arg name="fcu_url" value="$(arg fcu_url)" />
+                <arg name="gcs_url" value="$(arg gcs_url)" />
+                <arg name="tgt_system" value="$(arg tgt_system)" />
+                <arg name="tgt_component" value="$(arg tgt_component)" />
+                <arg name="log_output" value="$(arg log_output)" />
+                <arg name="fcu_protocol" value="$(arg fcu_protocol)" />
+                <arg name="respawn_mavros" value="$(arg respawn_mavros)" />
+        </include>
+
+<!--     <node pkg="bouncing_mission" type="visionnode.py" name="visionnode" output="screen" required="true" />    -->
+</launch>

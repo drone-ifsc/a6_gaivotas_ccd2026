@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="parede_branca_logo_curta">
+    <static>true</static>
+    <link name="link">
+
+      <collision name="collision">
+        <geometry><box><size>7.0 0.1 1.5</size></box></geometry>
+      </collision>
+
+      <visual name="parede_visual">
+        <geometry><box><size>7.0 0.1 1.5</size></box></geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="logo_visual_dentro">
+        <pose>0 -0.051 0 0 0 0</pose>
+        <geometry><box><size>2.0 0.001 1.0</size></box></geometry>
+        <material>
+          <script>
+            <uri>model://parede_branca_logo_curta/materials/scripts</uri>
+            <uri>model://parede_branca_logo_curta/materials/textures</uri>
+            <name>ParedeLogo/Mat</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="logo_visual_fora">
+        <pose>0 0.051 0 0 0 0</pose>
+        <geometry><box><size>2.0 0.001 1.0</size></box></geometry>
+        <material>
+          <script>
+            <uri>model://parede_branca_logo_curta/materials/scripts</uri>
+            <uri>model://parede_branca_logo_curta/materials/textures</uri>
+            <name>ParedeLogo/Mat</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

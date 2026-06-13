@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="base_aruco_est2">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box><size>0.8 0.8 0.001</size></box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://base_aruco_est2/materials/scripts</uri>
+            <uri>model://base_aruco_est2/materials/textures</uri>
+            <name>base_aruco_est2/Mat</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

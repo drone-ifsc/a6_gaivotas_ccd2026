@@ -1,0 +1,114 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="arena_FRL">
+    
+    <!-- Wall 1 -->
+    <model name="wall_1">
+      <include>
+	      <uri>model://parede_translucida</uri>
+        <pose>-4 -0.05 1.5 0 0 0</pose>
+      </include>
+    </model>
+    
+    <!-- Wall 2 -->
+    <model name="wall_2">
+      <include>
+	      <uri>model://parede_translucida</uri>
+        <pose>-8.05 4 1.5 0 0 1.5708</pose>
+      </include>
+    </model>
+    
+    <!-- Wall 3 -->
+    <model name="wall_3">
+      <include>
+	      <uri>model://parede_ifsc</uri>
+        <pose>-4 8.05 1.5 0 0 0</pose>
+      </include>
+    </model>
+    
+    <!-- Wall 4 -->
+    <model name="wall_4">
+      <include>
+	      <uri>model://parede_ifsc</uri>
+        <pose>0.05 4 1.5 0 0 1.5708</pose>
+      </include>
+    </model>
+    
+    <!-- Adiciona o chão -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Luz ambiente -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Base de Takeoff -->
+    <include>
+      <uri>model://base_takeoff</uri>
+      <pose>-0.75 1 0 0 0 1.57</pose>
+    </include>
+
+
+    <!-- Base de Pouso Altura 1m -->
+    <include>
+      <uri>model://base_pouso_alt1</uri>
+      <pose>-3.5 1 0 0 0 0</pose>
+    </include>
+
+    <!-- Base de Pouso Altura 1.5m -->
+    <include>
+      <uri>model://base_pouso_alt15</uri>
+      <pose>-1 7 0 0 0 0</pose>
+    </include>
+
+    <!-- Prateleira -->
+    <include>
+      <uri>model://prateleira</uri>
+      <pose>-4 7.5 0 0 0 0</pose>
+    </include>
+
+    <!-- Base de Pouso -->
+    <model name="base1">
+      <include> 
+        <uri>model://base_pouso</uri>
+        <pose>-4 4 0 0 0 0</pose>
+      </include> 
+    </model>
+
+    <!-- Base de Pouso -->
+    <model name="base2">
+      <include> 
+        <uri>model://base_pouso</uri>
+        <pose>-6 2 0 0 0 0</pose>
+      </include> 
+    </model>
+
+    <!-- Base de Pouso -->
+    <model name="base3">
+      <include>
+        <uri>model://base_pouso</uri>
+        <pose>-6 6 0 0 0 0</pose>
+      </include>
+    </model>
+
+    <!-- Iris UAV -->
+    <model name="droneIFSC">
+      <include>
+        <uri>model://droneIFSC</uri>  
+      </include>
+      <pose>-0.75 1 0.5 0 0 1.5708</pose>  
+    </model>
+
+    <!-- QRCode Box -->
+    <model name="qr_cube">
+      <include>
+        <uri>model://qr_cube</uri>
+      </include>
+      <pose>-4 7.5 1.52 0 0 1.5708</pose>
+    </model>
+  </world>
+</sdf>
+
+ 

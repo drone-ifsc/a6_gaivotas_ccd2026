@@ -1,0 +1,13 @@
+material base_aruco_est2/Mat
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture base_aruco_est2.jpg
+      }
+    }
+  }
+}
