@@ -61,7 +61,7 @@
       <visualize>true</visualize>
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <always_on>true</always_on>
-        <update_rate>5</update_rate>
+        <update_rate>20</update_rate>
         <!-- cameraName=camera + imageTopicName=image_raw -> publica em /camera/image_raw
              que e o que gauge_reader.py escuta via WebcamNode (rostopic_2_cv.py) -->
         <cameraName>camera</cameraName>

@@ -193,12 +193,12 @@ fake_gps:
 
 # landing_target
 landing_target:
-  listen_lt: false
+  listen_lt: true   # true -> plugin subscribes to ~landing_target/raw (mavros_msgs/LandingTarget)
   mav_frame: "LOCAL_NED"
   land_target_type: "VISION_FIDUCIAL"
   image:
-    width: 640            # [pixels]
-    height: 480
+    width: 1646           # [pixels]
+    height: 1232
   camera:
     fov_x: 2.0071286398   # default: 115 [degrees]
     fov_y: 2.0071286398

@@ -1,0 +1,47 @@
+<launch>
+  <arg name="package_location" default="$(find a6_gaivotas_ccd2026)"/>
+
+  <env name="GAZEBO_MODEL_PATH" value="$(arg package_location)/models:$(optenv GAZEBO_MODEL_PATH)"/> <!-- :$(optenv GAZEBO_MODEL_PATH) -->
+  <arg name="world" default="arena"/>  <arg name="world_file" default="$(arg package_location)/worlds/arena.world"/>
+  
+  <arg name="gui" default="true"/>
+  <arg name="physics" default="ode"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="extra_gazebo_args" value="--verbose"/>
+    <arg name="physics" value="$(arg physics)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+  </include>
+
+        <arg name="ros_ip"     default="$(optenv ROS_IP 127.0.0.1)"/>
+<!--        <arg name="fcu_url" default="/dev/ttyAMA0:230400" /> -->
+        <arg name="fcu_url" default="udp://127.0.0.1:14551@" />
+        <arg name="gcs_url" default="udp://$(arg ros_ip):14445@" />
+        <arg name="tgt_system" default="1" />
+        <arg name="tgt_component" default="1" />
+        <arg name="log_output" default="screen" />
+        <arg name="fcu_protocol" default="v2.0" />
+        <arg name="respawn_mavros" default="true" />
+
+        <include file="$(find mavros)/launch/node.launch">
+                <arg name="pluginlists_yaml" value="$(find mavros)/launch/apm_pluginlists.yaml" />
+                <arg name="config_yaml" value="$(arg package_location)/launch/apm_config.yaml" />
+
+                <arg name="fcu_url" value="$(arg fcu_url)" />
+                <arg name="gcs_url" value="$(arg gcs_url)" />
+                <arg name="tgt_system" value="$(arg tgt_system)" />
+                <arg name="tgt_component" value="$(arg tgt_component)" />
+                <arg name="log_output" value="$(arg log_output)" />
+                <arg name="fcu_protocol" value="$(arg fcu_protocol)" />
+                <arg name="respawn_mavros" value="$(arg respawn_mavros)" />
+        </include>
+
+    <node pkg="a6_gaivotas_ccd2026" type="landing_target_sender.py" name="landing_target" output="screen" required="true" />   
+    <node pkg="a6_gaivotas_ccd2026" type="base_reader.py" name="base_reader" output="screen" required="true" />   
+
+        <node pkg="mavros" type="mavsys" name="mavsys_rate_raw_sensors"
+    args="rate --raw-sensors 20" output="screen" />
+    
+</launch>
