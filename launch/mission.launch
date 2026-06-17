@@ -26,8 +26,9 @@
          sua taxa e controlada pelo no landing_target_sender (~rate).
          bash equivalente: rosrun mavros mavsys rate (два минуса)raw-sensors 20 -->
     
+    
     <node pkg="mavros" type="mavsys" name="mavsys_rate_raw_sensors"
-    args="rate --raw-sensors 20" output="screen" />
+    args="rate --raw-sensors 20" output="screen" launch-prefix="bash -c 'sleep 4.0; $0 $@' " /> />
     
     <node pkg="a6_gaivotas_ccd2026" type="base_reader.py" name="base_reader" output="screen" required="true" /> 
     <node pkg="a6_gaivotas_ccd2026" type="landing_target_sender.py" name="landing_target" output="screen" required="true" />   
