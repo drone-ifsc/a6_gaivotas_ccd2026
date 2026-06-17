@@ -62,7 +62,7 @@ def main():
 	rospy.init_node('base_reader', anonymous=False)
 
 	publish_image = rospy.get_param('~publish_image', True)
-	rate_hz = rospy.get_param('~rate', 20	)
+	rate_hz = rospy.get_param('~rate', 10)
 
 
 	model_path = rospy.get_param('~model',

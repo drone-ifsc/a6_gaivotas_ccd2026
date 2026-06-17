@@ -50,8 +50,8 @@ class TargetPosePublisher:
     MAV_FRAME_BODY_FRD = 12
 
     # Dimensões reais do alvo [m] usadas para calcular o tamanho angular.
-    MARKER_W = 0.18
-    MARKER_H = 0.18
+    MARKER_W = 1
+    MARKER_H = 1
 
     def __init__(self):
         rospy.init_node('target_pose_publisher', anonymous=True)
@@ -126,7 +126,7 @@ class TargetPosePublisher:
             return
 
         px, py = point.x, point.y
-        h = max(point.z, 0.1)   # altura/profundidade estimada [m] (evita vetor nulo)
+        h = max(point.z, 0.2)   # altura/profundidade estimada [m] (evita vetor nulo)
 
         # Back-projeta o pixel -> raio na câmera (OpenCV: x dir., y baixo, z frente/óptico).
         u = (px - self.cx) / self.fx

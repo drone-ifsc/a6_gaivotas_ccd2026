@@ -43,6 +43,6 @@
       
 
         <node pkg="mavros" type="mavsys" name="mavsys_rate_raw_sensors"
-    args="rate --raw-sensors 20" output="screen" />
+    args="rate --raw-sensors 10" output="screen" launch-prefix="bash -c 'sleep 4.0; $0 $@' " />
     
 </launch>
