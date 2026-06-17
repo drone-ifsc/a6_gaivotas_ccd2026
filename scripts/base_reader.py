@@ -13,7 +13,7 @@ from rostopic_2_cv import *
 
 # foco_px * distancia_real_entre_keypoints [px*m]. Calibrar: a uma altura Z conhecida,
 # ALT_SCALE = Z * d_px medido. Sem isso, dist_2_alt nao esta em metros.
-ALT_SCALE = 1.0
+ALT_SCALE = 250
 
 def dist_2_pts(x1, y1, x2, y2):
 	return np.sqrt((x2 - x1)**2 + (y2 - y1)**2)

@@ -137,11 +137,11 @@ def build_camera_cmd(width, height, framerate, quality):
 def main():
     rospy.init_node("camera_host_server", anonymous=False)
 
-    publish_raw  = rospy.get_param("~publish_raw",  False)
+    publish_raw  = rospy.get_param("~publish_raw",  True)
     publish_jpeg = rospy.get_param("~publish_jpeg", True)
     width        = rospy.get_param("~width",  1640)
     height       = rospy.get_param("~height", 1232)
-    framerate    = rospy.get_param("~framerate", 5)
+    framerate    = rospy.get_param("~framerate", 20)
     quality      = rospy.get_param("~quality", 30)
     undistort    = rospy.get_param("~undistort",  True)
     default_calib = os.path.join(os.path.dirname(os.path.abspath(__file__)), "camera_correction/imx219_3280x2464/ost.yaml")
